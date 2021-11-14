@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: contact-service
+  name: contact-service-argo
 spec:
   selector:
     matchLabels:
-      app: contact-service
+      app: contact-service-argo
   template:
     metadata:
       labels:
-        app: contact-service
+        app: contact-service-argo
     spec:
       containers:
       - name: contact-service
@@ -20,3 +20,13 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8000
+        volumeMounts:
+          - mountPath: /data/sqlite
+            name: sqlite-data
+        env:
+          - name: DB_PATH
+            value: /data/sqlite/database.sqlite
+      volumes:
+        - name: sqlite-data
+          persistentVolumeClaim:
+              claimName: contact-service-pvc-argo
