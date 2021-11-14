@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: contact-service-argo-route
+  namespace: ag-test
+spec:
+  path: /
+  to:
+    kind: Service
+    name: contact-service-service-argo
+  port:
+    targetPort: 80

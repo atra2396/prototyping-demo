@@ -5,6 +5,7 @@ resources:
 - deployment.yaml
 - service.yaml
 - pvc.yaml
+- route.yaml
 images:
 - name: contact-service-image
   newName: ghcr.io/atra2396/prototyping-demo
