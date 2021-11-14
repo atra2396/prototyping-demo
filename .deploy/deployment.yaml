@@ -14,10 +14,6 @@ spec:
       containers:
       - name: contact-service
         image: contact-service-image
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 8000
         volumeMounts:
