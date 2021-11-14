@@ -8,4 +8,4 @@ spec:
       storage: 50Mi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
