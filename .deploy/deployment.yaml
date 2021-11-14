@@ -25,4 +25,4 @@ spec:
       volumes:
         - name: sqlite-data
           persistentVolumeClaim:
-              claimName: contact-service-pvc-argo
+              claimName: contact-service-pvc-argo-2
