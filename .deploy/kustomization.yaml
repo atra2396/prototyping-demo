@@ -7,5 +7,5 @@ resources:
 - pvc.yaml
 images:
 - name: contact-service-image
-  newName: ghcr.io/atra2396/prototyping-demo
-  newTag: master
+  newName: atra2396/prototyping-demo
+  newTag: 815fb3959ff9f29440f78b217af9cd3270d9d24f
