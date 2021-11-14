@@ -9,4 +9,4 @@ spec:
     kind: Service
     name: contact-service-service-argo
   port:
-    targetPort: 80
+    targetPort: 8000
