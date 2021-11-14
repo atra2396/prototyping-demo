@@ -16,8 +16,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  # full image name
-  FULL_IMAGE: $REGISTRY/$IMAGE_NAME
 
 
 jobs:
@@ -76,7 +74,7 @@ jobs:
       - name: Update Kubernetes resources
         run: |
          cd .deploy
-         kustomize edit set image contact-service-image=$FULL_IMAGE:$GITHUB_SHA
+         kustomize edit set image contact-service-image=$REGISTRY/$IMAGE_NAME:$GITHUB_SHA
          cat kustomization.yaml
          
       - name: Commit files
