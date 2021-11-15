@@ -6,6 +6,7 @@ name: GitOps
 # documentation.
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
     # Publish semver tags as releases.
@@ -83,10 +84,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -am "Bump docker tag"
-          git tag -f latest-deployment
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          tags: true
