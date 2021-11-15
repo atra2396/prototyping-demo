@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: contact-service-argo
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: contact-service-argo
+  template:
+    metadata:
+      labels:
+        app: contact-service-argo
+    spec:
+      containers:
+      - name: contact-service
+        image: contact-service-image
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+          - mountPath: /data/sqlite
+            name: sqlite-data
+        env:
+          - name: DB_PATH
+            value: /data/sqlite/database.sqlite
+      volumes:
+        - name: sqlite-data
+          persistentVolumeClaim:
+              claimName: contact-service-pvc-argo-2
+  strategy:
+    canary:
+      steps:
+      - setWeight: 25
+      - pause: 
+          duration: 2m
+      - setWeight: 75
+      - pause: 
+          duration: 2m
