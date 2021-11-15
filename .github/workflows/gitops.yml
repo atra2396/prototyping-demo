@@ -84,6 +84,14 @@ jobs:
           git config --local user.name "GitHub Action"
           git commit -am "Bump docker tag"
 
+      - name: Commit tagger
+        # You may pin to the exact commit or the version.
+        # uses: tvdias/github-tagger@ed7350546e3e503b5e942dffd65bc8751a95e49d
+        uses: tvdias/github-tagger@v0.0.2
+        with:
+          # The GITHUB_TOKEN secret
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
