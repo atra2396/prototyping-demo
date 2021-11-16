@@ -1,10 +1,12 @@
+import random
 from os import environ
 
 from faker import Faker
 from fastapi import FastAPI
+from fastapi.responses import Response
 from pony.orm import db_session, select
 
-from db import db, Contact
+from db import Contact, db
 
 db_path = environ.get("DB_PATH", "database.sqlite")
 
@@ -34,4 +36,13 @@ def create_contact():
         "name": contact.name,
         "phone": contact.phone
     }
+
+@app.get("/liveness")
+def liveness(response: Response):
+    health_percent = environ.get("HEALTH_PERCENT", 100)
+    random_value = random.randrange(1, 101)
+    if health_percent >= random_value:
+        response.status_code = 200
+    else:
+        response.status_code = 500
 

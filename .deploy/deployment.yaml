@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: contact-service-argo
 spec:
+  replicas: 5
   selector:
     matchLabels:
       app: contact-service-argo
@@ -22,6 +23,15 @@ spec:
         env:
           - name: DB_PATH
             value: /data/sqlite/database.sqlite
+          - name: HEALTH_PERCENT
+            value: "75"
+        livenessProbe:
+          httpGet:
+            path: /liveness
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 1
       volumes:
         - name: sqlite-data
           persistentVolumeClaim:
