@@ -39,7 +39,7 @@ def create_contact():
 
 @app.get("/liveness")
 def liveness(response: Response):
-    health_percent = environ.get("HEALTH_PERCENT", 100)
+    health_percent = int(environ.get("HEALTH_PERCENT", 100))
     random_value = random.randrange(1, 101)
     if health_percent >= random_value:
         response.status_code = 200
