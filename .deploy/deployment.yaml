@@ -4,6 +4,7 @@ metadata:
   name: contact-service-argo
 spec:
   replicas: 5
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: contact-service-argo
@@ -32,6 +33,7 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 5
           failureThreshold: 1
+        
       volumes:
         - name: sqlite-data
           persistentVolumeClaim:
