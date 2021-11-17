@@ -1,6 +1,2 @@
-# Prerequisities:
-- You have a GitHub Personal Access Token with package read access
-- You are connected to the VPN (required to access OpenShift)
-
-# Steps:
-TBD
+# GitOps
+This branch is for managing Kubernetes resources. ArgoCD reads from this branch to determine whether it needs to update or not.

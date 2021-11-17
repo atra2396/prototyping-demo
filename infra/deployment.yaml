@@ -32,9 +32,9 @@ spec:
             port: 8000
           initialDelaySeconds: 5
           periodSeconds: 5
-          failureThreshold: 1
+          failureThreshold: 2
         
       volumes:
         - name: sqlite-data
           persistentVolumeClaim:
-              claimName: contact-service-pvc-argo-2
+              claimName: contact-service-pvc-argo

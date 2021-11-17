@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: contact-service-pvc-argo-2
+  name: contact-service-pvc-argo
 spec:
   resources:
     requests:
