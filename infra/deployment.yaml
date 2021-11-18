@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: contact-service-argo
 spec:
-  replicas: 3
+  replicas: 5
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -25,7 +25,7 @@ spec:
           - name: DB_PATH
             value: /data/sqlite/database.sqlite
           - name: HEALTH_PERCENT
-            value: "99"
+            value: "20"
         livenessProbe:
           httpGet:
             path: /liveness
