@@ -22,7 +22,7 @@ def get_contacts():
         contacts = [
             {
                 "name": contact.name,
-                "phone_number": contact.phone
+                "phone": contact.phone
             }
             for contact in select(c for c in Contact)
         ]
