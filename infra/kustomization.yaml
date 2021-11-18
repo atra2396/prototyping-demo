@@ -9,4 +9,4 @@ resources:
 images:
 - name: contact-service-image
   newName: ghcr.io/atra2396/prototyping-demo
-  newTag: dd74905f959242c6ac1e11681d0d1ede1506e4e2
+  newTag: 104f8a3ad93ac7c872d6b0993b6b31a511b54402
