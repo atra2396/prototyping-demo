@@ -25,7 +25,7 @@ spec:
           - name: DB_PATH
             value: /data/sqlite/database.sqlite
           - name: HEALTH_PERCENT
-            value: "90"
+            value: "99"
         livenessProbe:
           httpGet:
             path: /liveness
